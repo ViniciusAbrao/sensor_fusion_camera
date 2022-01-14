@@ -20,9 +20,18 @@ void gaussianSmoothing1()
                             1, 4, 7, 4, 1};
     cv::Mat kernel = cv::Mat(5, 5, CV_32F, gauss_data);
 
+    // STUDENTS NEET TO ENTER THIS CODE
+    for (int i = 0; i < 25; i++)
+    {
+        gauss_data[i] /= 273;
+    }
+    // EOF STUDENT CODE
+
     // apply filter
     cv::Mat result;
+
     cv::filter2D(img, result, -1, kernel, cv::Point(-1, -1), 0, cv::BORDER_DEFAULT);
+    //cv::GaussianBlur(img, result, cv::Size(5,5), 0, 0, cv::BORDER_DEFAULT);
 
     // show result
     string windowName = "Gaussian Blurring";
